@@ -76,11 +76,12 @@ body {
     text-transform: uppercase;
     font-weight: 900;
     opacity: 0;
+    animation-name: loaderanime;
     animation-duration: 1s;
     animation-iteration-count: infinite;
 }
 
-@keyframes anime {
+@keyframes loaderanime {
     0%{
         font-family: "plain light";
         -webkit-text-stroke: 1px #fff;
@@ -114,7 +115,7 @@ body {
 
 #main {
     position: relative;
-    background-color: #151515;
+    background-color: #030303;
 }
 
 #page1 {
