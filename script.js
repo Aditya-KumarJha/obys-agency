@@ -23,6 +23,7 @@ function locomotiveAnimation() {
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
     ScrollTrigger.refresh();
 };
+
 function loadingAnimation() {
     var tl = gsap.timeline();
     tl.from(".line h1",{
@@ -76,6 +77,7 @@ function loadingAnimation() {
         opacity:0
     },"-=1.2");
 };
+
 function cursorAnimation() {
     Shery.mouseFollower({
         skew:true,
@@ -129,6 +131,7 @@ function cursorAnimation() {
         }
     });
 };
+
 function sheryAnimation() {
     Shery.imageEffect(".image-div",{
         style:5,
@@ -136,7 +139,57 @@ function sheryAnimation() {
         gooey:true
     });
 };
+
+function flagAnimation() {
+    document.addEventListener("mousemove",function(dets){
+        gsap.to("#flag",{
+            x:dets.x,
+            y:dets.y
+        });
+    });
+    document.querySelector("#hero3").addEventListener("mouseenter",function(){
+        gsap.to("#flag",{
+            opacity:1,
+        });
+    });
+    document.querySelector("#hero3").addEventListener("mouseleave",function(){
+        gsap.to("#flag",{
+            opacity:0
+        });
+    });
+}
+
+function textEffect() {
+    $("#footer #text-container").hover(
+        function () {
+            let h1 = $(this).find("h1");
+            h1.textillate("stop");
+            h1.textillate({
+                in: { effect: "fadeIn", delay: 50 }
+            });
+
+            h1.css({ "opacity": "0", "font-style": "italic", "font-weight": "300" })
+              .animate({ opacity: 1 }, 500);
+        },
+        function () {
+            let h1 = $(this).find("h1");
+            h1.textillate("stop"); 
+
+            h1.animate({ opacity: 1 }, 500, function () {
+                h1.css({ "font-style": "normal", "font-weight": "200" }); 
+            });
+        }
+    );
+}
+
 loadingAnimation();
+
 locomotiveAnimation();
+
 cursorAnimation();
+
 sheryAnimation();
+
+flagAnimation();
+
+textEffect();

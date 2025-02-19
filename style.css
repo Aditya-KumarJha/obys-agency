@@ -26,7 +26,7 @@ body {
     height: 100%;
     width: 100%;
     position: fixed;
-    z-index: 999;
+    z-index: 9999;
     background-color: #030303;
     padding: 25vh 10vw;
 }
@@ -71,12 +71,12 @@ body {
     text-transform: uppercase;
     font-weight: 900;
     opacity: 0;
-    animation-name: loaderanime;
-    animation-duration: 1s;
+    animation-name: loader;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 
-@keyframes loaderanime {
+@keyframes loader {
     0%{
         font-family: "plain light";
         -webkit-text-stroke: 1px #fff;
@@ -622,3 +622,37 @@ body {
     z-index: 999999 !important;
     pointer-events: none;
 } 
+
+#flag {
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    
+}
+
+#hero3 {
+    z-index: 999;
+    position: relative;
+}
+
+#text-container {
+    display: flex;
+    align-items: center;
+    gap: 2vw; 
+}
+
+#footer svg {
+    width: 5vw;  
+    height: 5vh; 
+    position: absolute;
+    left: 75%;
+    bottom: 85%;
+}
+
+#footer #text-container:hover svg {
+    width: 7vw;  
+    height: 9.5vh; 
+}
